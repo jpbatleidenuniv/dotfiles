@@ -29,4 +29,6 @@ vim.o.inccommand = "split" -- Preview substitutions live, as you type!
 vim.o.cursorline = true
 vim.o.scrolloff = 50 -- Minimal number of screen lines to keep above and below the cursor.
 vim.o.confirm = true -- Confirm me if I want to save changes or something (like after :q)
-
+vim.o.ts = 4 -- Indent size in spaces.
+vim.o.sw = 4 -- Indent size in spaces.
+vim.o.clipboard = 'unnamed'
