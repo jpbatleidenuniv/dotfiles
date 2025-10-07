@@ -1,6 +1,0 @@
-return {
-	{
-		"nvim/lspconfig-nvim",
-		
-	}
-}

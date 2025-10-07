@@ -1,4 +1,3 @@
-print("The lua module loading works!")
 vim.api.nvim_create_autocmd("TextYankPost", { -- Highlight when yanking (copying) text
 	group = vim.api.nvim_create_augroup("highlight_yank", {}),
 	desc = "Hightlight selection on yank",
@@ -7,5 +6,3 @@ vim.api.nvim_create_autocmd("TextYankPost", { -- Highlight when yanking (copying
 		vim.highlight.on_yank({ higroup = "IncSearch", timeout = 100 })
 	end,
 })
-
-
