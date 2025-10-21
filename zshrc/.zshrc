@@ -104,6 +104,7 @@ alias zshconfig="~/.zshrc"
 alias dotnvim="cd ~/dotfiles/nvim/.config/nvim && nvim ."
 alias actvenv="source .venv/bin/activate"
 alias adm="cd ~/Documents/Master/ADM/"
+alias frp="cd ~/Documents/Master/FirstResearchProject/src/ && nvim ."
 
 fastfetch
 
