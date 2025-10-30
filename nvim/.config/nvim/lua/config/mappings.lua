@@ -49,4 +49,10 @@ vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = "Diagnostic
 
 -- Running files
 -- Python
--- vim.keymap.set('n', '<leader>pp', )
+vim.keymap.set('n', '<leader>r', function()
+	vim.cmd('w')  -- Save the file
+	local file = vim.fn.expand('%')
+	local cmd = string.format("tmux send-keys -t 2 'clear; uv run %s' C-m", file)
+	vim.fn.system(cmd)
+	print("▶ Running: uv run " .. file)
+end, { desc = "Save and run Python file in tmux right pane" })
