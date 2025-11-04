@@ -7,5 +7,3 @@ require("config.diagnostics")
 require("core.lazy")
 require("core.lsp")
 
-
-require("config.colorscheme")
