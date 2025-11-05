@@ -104,8 +104,25 @@ alias zshconfig="~/.zshrc"
 alias dotnvim="cd ~/dotfiles/nvim/.config/nvim && nvim ."
 alias dotfiles="cd ~/dotfiles && nvim ."
 alias actvenv="source .venv/bin/activate"
+
+# Aliases related to studies
 alias adm="cd ~/Documents/Master/ADM/"
-alias frp="cd ~/Documents/Master/FirstResearchProject/"
+alias frp="cd ~/Documents/Master/FirstResearchProject/ && actvenv"
+sync_frp() {
+  ### We only include data folders and result files. I.e. large files not tracked by git.
+  ### However we still exclude .venvs and lock files
+  rsync -avz --info=NAME,SKIP \
+    --include='data/***' \
+    --include='results/***' \
+    --include='models/***' \
+    --include='training_runs/***' \
+    --include='jobs/***' \
+    --include='*.pth' \
+    --exclude='*' \
+    /home/jpb/Documents/Master/FirstResearchProject/ \
+    draco:/data2/jbaars/MyFRP/
+}
 
+
+clear
 fastfetch
-
