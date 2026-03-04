@@ -103,7 +103,7 @@ source $ZSH/oh-my-zsh.sh
 alias zshconfig="~/.zshrc"
 alias dotnvim="cd ~/dotfiles/nvim/.config/nvim && nvim ."
 alias dotfiles="cd ~/dotfiles && nvim ."
-alias actvenv="source .venv/bin/activate"
+alias actvenv="source ./.venv/bin/activate"
 
 # Aliases related to studies
 alias adm="cd ~/Documents/Master/ADM/"
