@@ -82,11 +82,12 @@ source $ZSH/oh-my-zsh.sh
 # export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='nvim'
-# fi
+if [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR='nvim'
+else
+  export EDITOR='vim'
+fi
+bindkey -v
 
 # Compilation flags
 # export ARCHFLAGS="-arch $(uname -m)"
@@ -105,8 +106,9 @@ alias dotnvim="cd ~/dotfiles/nvim/.config/nvim && nvim ."
 alias dotfiles="cd ~/dotfiles && nvim ."
 alias actvenv="source ./.venv/bin/activate"
 
+
 # Aliases related to studies
-alias adm="cd ~/Documents/Master/ADM/"
+alias rl="cd ~/Documents/Master/RL/"
 alias frp="cd ~/Documents/Master/FirstResearchProject/ && actvenv"
 sync_frp() {
   ### We only include data folders and result files. I.e. large files not tracked by git.
@@ -122,6 +124,9 @@ sync_frp() {
     /home/jpb/Documents/Master/FirstResearchProject/ \
     draco:/data2/jbaars/MyFRP/
 }
+
+# Functions
+function cf { ls $1 -1 | wc -l }
 
 
 clear
