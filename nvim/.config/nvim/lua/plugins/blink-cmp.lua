@@ -1,9 +1,9 @@
 return {
   {
     "saghen/blink.cmp",
-    version = "*",         -- or pin to a known working tag if you hit breaking changes. :contentReference[oaicite:1]{index=1}
+    version = "*",        -- or pin to a known working tag if you hit breaking changes. :contentReference[oaicite:1]{index=1}
     dependencies = {
-      "L3MON4D3/LuaSnip",   -- for snippets
+      "L3MON4D3/LuaSnip", -- for snippets
       -- optionally: "saghen/blink.compat" if you’ll reuse nvim-cmp sources. :contentReference[oaicite:2]{index=2}
     },
     event = "InsertEnter",
@@ -33,22 +33,43 @@ return {
           use_nvim_cmp_as_default = false,
           nerd_font_variant = "mono",
           kind_icons = {
-            Text = "", Method = "󰆧", Function = "󰊕", Constructor = "",
-            Field = "󰇽", Variable = "󰂡", Class = "󰠱", Interface = "",
-            Module = "", Property = "󰜢", Unit = "", Value = "󰎠",
-            Enum = "", Keyword = "󰌋", Snippet = "", Color = "󰏘",
-            File = "󰈙", Reference = "󰈇", Folder = "󰉋", EnumMember = "",
-            Constant = "󰏿", Struct = "", Event = "", Operator = "󰆕",
+            Text = "",
+            Method = "󰆧",
+            Function = "󰊕",
+            Constructor = "",
+            Field = "󰇽",
+            Variable = "󰂡",
+            Class = "󰠱",
+            Interface = "",
+            Module = "",
+            Property = "󰜢",
+            Unit = "",
+            Value = "󰎠",
+            Enum = "",
+            Keyword = "󰌋",
+            Snippet = "",
+            Color = "󰏘",
+            File = "󰈙",
+            Reference = "󰈇",
+            Folder = "󰉋",
+            EnumMember = "",
+            Constant = "󰏿",
+            Struct = "",
+            Event = "",
+            Operator = "󰆕",
           },
         },
 
         completion = {
-          accept = { auto_brackets = { enabled = true } },
+          accept = {
+            auto_brackets = { enabled = true },
+            resolve_timeout_ms = 500,
+          },
           list = {
             selection = { preselect = true, auto_insert = false },
           },
           menu = {
-            border = "single",        -- “squared” look via single border
+            border = "single", -- “squared” look via single border
             max_height = 15,
             scrollbar = true,
             winhighlight = "Normal:CmpNormal,FloatBorder:CmpBorder,CursorLine:PmenuSel",
@@ -84,4 +105,3 @@ return {
     end,
   }
 }
-
