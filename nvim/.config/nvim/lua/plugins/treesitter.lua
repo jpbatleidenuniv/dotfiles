@@ -1,24 +1,13 @@
 return {
   {
-    "nvim-treesitter/nvim-treesitter",
-    branch = "master",
+    'nvim-treesitter/nvim-treesitter',
     lazy = false,
-    build = ":TSUpdate", -- ← missing comma fixed here
+    build = ':TSUpdate',
     config = function()
-      require("nvim-treesitter.configs").setup({
-        ensure_installed = {
-          "c",
-          "lua",
-          "vim",
-          "vimdoc",
-          "query",
-          "markdown",
-          "markdown_inline",
-          "python",
-        },
+      require("nvim-treesitter").setup {
+        ensure_installed = { "lua", "python", "javascript" },
         highlight = { enable = true },
-        indent = { enable = true },
-      })
-    end,
-  },
+      }
+    end
+  }
 }

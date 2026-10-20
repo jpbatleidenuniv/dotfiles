@@ -5,6 +5,7 @@ return {
     -- 2. Apply them to your native LSP configurations
     vim.lsp.config('pyrefly', {
       capabilities = blink_caps,
+
     })
   end,
 }

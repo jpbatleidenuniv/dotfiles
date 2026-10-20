@@ -108,26 +108,11 @@ alias actvenv="source ./.venv/bin/activate"
 
 
 # Aliases related to studies
-alias rl="cd ~/Documents/Master/RL/"
-alias frp="cd ~/Documents/Master/FirstResearchProject/ && actvenv"
-sync_frp() {
-  ### We only include data folders and result files. I.e. large files not tracked by git.
-  ### However we still exclude .venvs and lock files
-  rsync -avz --info=NAME,SKIP \
-    --include='data/***' \
-    --include='results/***' \
-    --include='models/***' \
-    --include='training_runs/***' \
-    --include='jobs/***' \
-    --include='*.pth' \
-    --exclude='*' \
-    /home/jpb/Documents/Master/FirstResearchProject/ \
-    draco:/data2/jbaars/MyFRP/
-}
+alias amuse="cd ~/FinalYear/AMUSE/"
+alias mrp="cd ~/FinalYear/mrp/"
 
 # Functions
 function cf { ls $1 -1 | wc -l }
-
 
 clear
 fastfetch
