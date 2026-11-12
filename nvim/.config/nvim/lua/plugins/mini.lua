@@ -9,9 +9,19 @@ return {
           return true
         end
       })
-      require('mini.ai').setup({})
-      require('mini.pairs').setup({})
-      require('mini.align').setup({})
+      require('mini.ai').setup()
+      require('mini.align').setup()
+      require('mini.pairs').setup({
+        mappings = {
+          ['('] = { action = 'open', pair = '()', neigh_pattern = '[^\\][^%w]' },
+          ['['] = { action = 'open', pair = '[]', neigh_pattern = '[^\\][^%w]' },
+          ['{'] = { action = 'open', pair = '{}', neigh_pattern = '[^\\][^%w]' },
+
+          ['"'] = { action = 'closeopen', pair = '""', neigh_pattern = '[^%w\\][^%w]', register = { cr = false } },
+          ["'"] = { action = 'closeopen', pair = "''", neigh_pattern = '[^%a\\][^%w]', register = { cr = false } },
+          ['`'] = { action = 'closeopen', pair = '``', neigh_pattern = '[^%w\\][^%w]', register = { cr = false } },
+        },
+      })
     end
   }
 }
