@@ -27,9 +27,15 @@ vim.o.inccommand = "split" -- Preview substitutions live, as you type!
 vim.o.cursorline = true
 vim.o.scrolloff = 50       -- Minimal number of screen lines to keep above and below the cursor.
 vim.o.confirm = true       -- Confirm me if I want to save changes or something (like after :q)
-vim.o.tabstop = 2 -- 2 spaces for tabs (prettier default)
-vim.o.shiftwidth = 2 -- 2 spaces for indent width
-vim.o.expandtab = true -- expand tab to spaces
-vim.o.autoindent = true -- copy indent from current line when starting new one
+vim.o.tabstop = 2          -- 2 spaces for tabs (prettier default)
+vim.o.shiftwidth = 2       -- 2 spaces for indent width
+vim.o.expandtab = true     -- expand tab to spaces
+vim.o.autoindent = true    -- copy indent from current line when starting new one
 vim.o.clipboard = 'unnamed'
 vim.o.winborder = 'none'
+
+vim.g.python_indent = {
+  open_paren = 'shiftwidth()',
+  continue = 'shiftwidth()',
+  closed_paren_align_last_line = false,
+}

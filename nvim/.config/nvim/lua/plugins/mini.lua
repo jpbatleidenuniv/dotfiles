@@ -12,7 +12,6 @@ return {
       require('mini.ai').setup({})
       require('mini.pairs').setup({})
       require('mini.align').setup({})
-      require('mini.surround').setup({})
     end
   }
 }

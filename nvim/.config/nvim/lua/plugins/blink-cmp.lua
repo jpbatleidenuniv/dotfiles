@@ -1,10 +1,15 @@
 return {
   {
     "saghen/blink.cmp",
-    version = "*",        -- or pin to a known working tag if you hit breaking changes. :contentReference[oaicite:1]{index=1}
+    version = "*", -- or pin to a known working tag if you hit breaking changes. :contentReference[oaicite:1]{index=1}
     dependencies = {
-      "L3MON4D3/LuaSnip", -- for snippets
-      -- optionally: "saghen/blink.compat" if you’ll reuse nvim-cmp sources. :contentReference[oaicite:2]{index=2}
+      {
+        "L3MON4D3/LuaSnip",
+        dependencies = { "rafamadriz/friendly-snippets" },
+        config = function()
+          require("luasnip.loaders.from_vscode").lazy_load()
+        end,
+      },
     },
     event = "InsertEnter",
     config = function()
@@ -91,7 +96,6 @@ return {
             winhighlight = "Normal:CmpSig,FloatBorder:CmpBorderSig",
           },
         },
-
         sources = {
           default = { "lsp", "path", "buffer", "snippets" },
           providers = {
