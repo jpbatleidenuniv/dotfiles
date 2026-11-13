@@ -1,0 +1,23 @@
+#!/usr/bin/zsh
+
+SESSION="$1"
+TMUX_DEV_LAYOUT="$HOME/dotfiles/tmux/.config/tmux/dev-layout.conf"
+
+if [[ -z $SESSION ]]; then
+  echo "No session supplied will use default session name"
+  SESSION="0"
+fi
+
+if [[ ! -d "$PROJECTS/$SESSION" ]]; then
+  echo "There is no project yet for $SESSION. Creating directory in $PROJECTS ..."
+  mkdir -p "$PROJECTS/$SESSION"
+fi
+
+cd "$PROJECTS/$SESSION"
+
+if tmux has-session -t "$SESSION" &> /dev/null; then
+  tmux attach -t "$SESSION" \; display-message -d 2000 "Attached to existing session $SESSION"
+else
+  tmux new-session -d -s "$SESSION" -c "$PROJECTS/$SESSION" \; source-file "$TMUX_DEV_LAYOUT"
+  tmux attach -t "$SESSION" \; display-message -d 2000 "Welcome to new session: $SESSION" 
+fi

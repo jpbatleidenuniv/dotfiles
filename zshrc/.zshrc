@@ -21,11 +21,11 @@ ZSH_THEME="robbyrussell"
 
 # Uncomment the following line to use hyphen-insensitive completion.
 # Case-sensitive completion must be off. _ and - will be interchangeable.
- HYPHEN_INSENSITIVE="true"
+HYPHEN_INSENSITIVE="true"
 
 # Uncomment one of the following lines to change the auto-update behavior
 # zstyle ':omz:update' mode disabled  # disable automatic updates
- zstyle ':omz:update' mode auto      # update automatically without asking
+zstyle ':omz:update' mode auto      # update automatically without asking
 # zstyle ':omz:update' mode reminder  # just remind me to update when it's time
 
 # Uncomment the following line to change how often to auto-update (in days).
@@ -101,18 +101,16 @@ bindkey -v
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
+PROJECTS="$HOME/projects/"
 alias zshconfig="~/.zshrc"
-alias dotnvim="cd ~/dotfiles/nvim/.config/nvim && nvim ."
-alias dotfiles="cd ~/dotfiles && nvim ."
-alias actvenv="source ./.venv/bin/activate"
-
-
-# Aliases related to studies
-alias amuse="cd ~/FinalYear/AMUSE/"
-alias mrp="cd ~/FinalYear/mrp/"
+alias av="source ./.venv/bin/activate"
 
 # Functions
 function cf { ls $1 -1 | wc -l }
+
+# Exports
+export PATH=$PATH:$HOME/dotfiles/scripts/
+export PROJECTS
 
 clear
 fastfetch
