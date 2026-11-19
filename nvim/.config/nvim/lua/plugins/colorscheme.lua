@@ -1,23 +1,6 @@
 return {
-  { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
-  {
-    "rose-pine/neovim",
-    name = "rose-pine",
-    config = function()
-      require("rose-pine").setup({
-        styles = {
-          bold = true,
-          italic = false,
-          transparency = false,
-        }
-      })
-      vim.cmd("colorscheme rose-pine")
-    end
-  },
-  {
-    "folke/tokyonight.nvim",
-    lazy = false,
-    priority = 1000,
-    opts = {},
-  }
+  { "folke/tokyonight.nvim",          lazy = true },
+  { "catppuccin/nvim",                name = "catppuccin", lazy = true },
+  { "rebelot/kanagawa.nvim",          lazy = true },
+  { "craftzdog/solarized-osaka.nvim", lazy = false,        opts = { transparent = false, vivid_brightness = 0.3, lualine_bold = true, } },
 }
