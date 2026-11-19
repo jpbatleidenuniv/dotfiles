@@ -49,7 +49,7 @@ vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = "Diagnostic
 
 -- Running files (Only works when using TMUX)
 -- Python
-vim.keymap.set('n', '<leader>r', function()
+vim.keymap.set('n', '<leader>rp', function()
   vim.cmd('w') -- Save the file
   local file = vim.fn.expand('%')
   local cmd = string.format("tmux send-keys -t 2 'clear; uv run %s' C-m", file)
@@ -57,16 +57,6 @@ vim.keymap.set('n', '<leader>r', function()
   print("▶ Running: uv run " .. file)
 end, { desc = "Save and run Python file in tmux right pane" })
 
--- Running Python modules (Only works when using TMUX)
-vim.keymap.set('n', '<leader>m', function()
-  vim.cmd('w') -- Save the file
-  local file = vim.fn.expand('%')
-  local no_ext = vim.fn.fnamemodify(file, ':r')
-  local module_path = no_ext:gsub('/', '.')
-  local cmd = string.format("tmux send-keys -t 2 'clear; uv run -m %s' C-m", module_path)
-  vim.fn.system(cmd)
-  print("▶ Running module: uv run -m " .. module_path)
-end, { desc = "Save and run Python module in tmux right pane" })
 
 vim.keymap.set("n", "<leader>c", function()
   vim.cmd("w")
