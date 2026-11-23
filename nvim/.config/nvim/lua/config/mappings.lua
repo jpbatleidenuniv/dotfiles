@@ -32,10 +32,6 @@ vim.keymap.set("i", "<up>", '<cmd>echo "Use k to move!!"<CR>')
 vim.keymap.set("i", "<down>", '<cmd>echo "Use j to move!!"<CR>')
 
 -- Make navigation a bit easier
-vim.keymap.set("n", "<C-h>", "<C-w><C-h>", { desc = "Move focus to the left window" }) --  See `:help wincmd` for a list of all window commands
-vim.keymap.set("n", "<C-l>", "<C-w><C-l>", { desc = "Move focus to the right window" })
-vim.keymap.set("n", "<C-j>", "<C-w><C-j>", { desc = "Move focus to the lower window" })
-vim.keymap.set("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to the upper window" })
 vim.keymap.set("n", "<C-Up>", "<cmd>resize +2<cr>", { desc = "Increase Window Height" })
 vim.keymap.set("n", "<C-Down>", "<cmd>resize -2<cr>", { desc = "Decrease Window Height" })
 vim.keymap.set("n", "<C-Right>", "<cmd>vertical resize +2<cr>", { desc = "Increase Window Width" })
@@ -46,23 +42,3 @@ vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = "Show diagn
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = "Previous diagnostic" })
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = "Next diagnostic" })
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = "Diagnostics to loclist" })
-
--- Running files (Only works when using TMUX)
--- Python
-vim.keymap.set('n', '<leader>rp', function()
-  vim.cmd('w') -- Save the file
-  local file = vim.fn.expand('%')
-  local cmd = string.format("tmux send-keys -t 2 'clear; uv run %s' C-m", file)
-  vim.fn.system(cmd)
-  print("▶ Running: uv run " .. file)
-end, { desc = "Save and run Python file in tmux right pane" })
-
-
-vim.keymap.set("n", "<leader>c", function()
-  vim.cmd("w")
-  local file = vim.fn.expand('%')
-  local bin = vim.fn.fnamemodify(file, ':r') .. ".out"
-  local cmd = string.format("tmux send-keys -t 2 'clear; gcc %s -o %s; ./%s' C-m", file, bin, bin)
-  vim.fn.system(cmd)
-  print("▶ Compiling and running:" .. file)
-end, { desc = "Save, compile and run a .c file in tmux right pane." })
