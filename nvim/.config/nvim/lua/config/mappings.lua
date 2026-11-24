@@ -31,12 +31,6 @@ vim.keymap.set("i", "<right>", '<cmd>echo "Use l to move!!"<CR>')
 vim.keymap.set("i", "<up>", '<cmd>echo "Use k to move!!"<CR>')
 vim.keymap.set("i", "<down>", '<cmd>echo "Use j to move!!"<CR>')
 
--- Make navigation a bit easier
-vim.keymap.set("n", "<C-Up>", "<cmd>resize +2<cr>", { desc = "Increase Window Height" })
-vim.keymap.set("n", "<C-Down>", "<cmd>resize -2<cr>", { desc = "Decrease Window Height" })
-vim.keymap.set("n", "<C-Right>", "<cmd>vertical resize +2<cr>", { desc = "Increase Window Width" })
-vim.keymap.set("n", "<C-Left>", "<cmd>vertical resize -2<cr>", { desc = "Decrease Window Width" })
-
 -- Diagnostics
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = "Show diagnostics in float" })
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = "Previous diagnostic" })
