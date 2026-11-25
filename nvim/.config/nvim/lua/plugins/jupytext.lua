@@ -1,9 +1,10 @@
 return {
   "GCBallesteros/jupytext.nvim",
-  config = true,
-  opts = {
-    style = "markdown",
-    output_extension = "md",
-    force_ft = "markdown",
-  },
+  config = function()
+    require("jupytext").setup({
+      style = "markdown",
+      output_extension = "md",
+      force_ft = "markdown",
+    })
+  end,
 }
