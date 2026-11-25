@@ -1,0 +1,36 @@
+#!/usr/bin/env zsh
+
+SESSION="dots"
+DOTFILES_DIR="$HOME/dotfiles"
+
+# Create or attach to the session
+if ! tmux has-session -t "$SESSION" 2>/dev/null; then
+    # Window 1: Neovim configuration
+    tmux new-session -d -s "$SESSION" -n nvim \
+        -c "$DOTFILES_DIR/nvim/.config/nvim"
+
+    tmux send-keys -t "$SESSION:nvim" "nvim" Enter
+
+    # Window 2: Scripts
+    tmux new-window -t "$SESSION" -n scripts \
+        -c "$DOTFILES_DIR/scripts/.local/bin"
+
+    # Window 3: Zsh configuration
+    tmux new-window -t "$SESSION" -n zsh \
+        -c "$DOTFILES_DIR/zsh"
+
+    tmux send-keys -t "$SESSION:zsh" \
+        "nvim .zshrc" Enter
+
+    # Window 4: Kitty configuration
+    tmux new-window -t "$SESSION" -n kitty \
+        -c "$DOTFILES_DIR/kitty/.config/kitty"
+
+    tmux send-keys -t "$SESSION:kitty" \
+        "nvim kitty.conf" Enter
+
+    tmux select-window -t "$SESSION:nvim"
+fi
+
+# Attach to session
+tmux attach-session -t "$SESSION"
