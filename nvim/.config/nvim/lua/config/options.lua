@@ -10,7 +10,6 @@
 --]]
 -- NOTE: You can change these options as you wish!
 --  For more options, you can see `:help option-list`
-
 vim.o.number = true        -- Make line numbers default
 vim.o.relativenumber = true
 vim.o.mouse = "a"          -- Enable mouse mode, can be useful for resizing splits for example!
@@ -33,9 +32,3 @@ vim.o.expandtab = true     -- expand tab to spaces
 vim.o.autoindent = true    -- copy indent from current line when starting new one
 vim.o.clipboard = 'unnamed'
 vim.o.winborder = 'none'
-
-vim.g.python_indent = {
-  open_paren = 'shiftwidth()',
-  continue = 'shiftwidth()',
-  closed_paren_align_last_line = false,
-}

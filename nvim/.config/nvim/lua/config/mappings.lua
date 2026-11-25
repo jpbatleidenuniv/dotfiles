@@ -10,7 +10,7 @@
 --]]
 -- Some more general keymaps, entering netrw and no highlight on search.
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex, { desc = "Go to file menu." })
-vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
+vim.keymap.set("n", "<Esc>", vim.cmd.nohlsearch)
 vim.keymap.set("n", "<M-q>", "<cmd>bd<CR>")
 vim.keymap.set("i", "jj", "<Esc>")
 vim.keymap.set("i", "jk", "<Esc>")

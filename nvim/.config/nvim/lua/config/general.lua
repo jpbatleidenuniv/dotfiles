@@ -1,2 +1,6 @@
 vim.g.mapleader = " "
-vim.g.have_nerd_font = true -- Set to true if you have a Nerd Font installed and selected in the terminal
+vim.g.maplocalleader = "\\"
+vim.g.have_nerd_font = true
+
+-- Python host for remote plugins (Molten). Must be set before plugins load.
+vim.g.python3_host_prog = vim.fn.expand("~/.venvs/neovim/bin/python")
